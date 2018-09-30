@@ -11,7 +11,7 @@ function scrollToBottom() {
   var newMessageHeight = newMessage.innerHeight();
   var lastMessageHeight = newMessage.prev().innerHeight();
 
-  if(clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
+  if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
     messages.scrollTop(scrollHeight);
   }
 
@@ -43,7 +43,7 @@ socket.on('newMessage', function (message) {
 
 
 
-socket.on('newLocationMessage', function(message){
+socket.on('newLocationMessage', function (message) {
   var formattedTime = moment(message.createdAt).format('LT');
   var template = jQuery('#location-message-template').html();
   var html = Mustache.render(template, {
